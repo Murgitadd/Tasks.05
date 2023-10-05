@@ -1,10 +1,38 @@
-Console.WriteLine("Enter a four-digit number:");
+using System;
 
-int num = int.Parse(Console.ReadLine());
+class Program {
+  
+  public static void Main (string[] args) {
+    
+    int[] initialArr = new int [6] {4, 7, 3, 6, 2, 7};
 
-int minlik = num / 1000;
-int yuzluk = (num % 1000) / 100;
-int onluq = (num % 100) / 10;
-int teklik = (num % 10);
+      InsertArray(initialArr, 5,7,8,45324344,1);
+    
+  }
 
-Console.WriteLine(minlik+yuzluk+onluq+teklik);
+  static void InsertArray (int[] arr, params int[] nums)
+  {
+
+    int[] firstArr = new int[arr.Length+nums.Length];
+
+    for (int i=0; i<firstArr.Length; i++)
+    {
+      if (i<arr.Length)
+      {
+        firstArr[i]=arr[i];
+      }
+      else
+      {
+        firstArr[i]=nums[i-arr.Length];
+      }
+    }
+
+    for (int i=0; i<firstArr.Length; i++)
+    {
+      Console.WriteLine($"{i}.index : {firstArr[i]}");
+    }
+    
+  }
+
+  
+}
